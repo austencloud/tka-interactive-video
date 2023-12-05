@@ -49,20 +49,15 @@ class VideoFrame(QVideoWidget):
         self.media_player.durationChanged.connect(self.duration_changed)
         self.media_player.errorOccurred.connect(self.handle_error)
 
-        self.media_player.hasVideoChanged.connect(self.update_video_size)
-        self.update_video_size(video_size)
-
-    def update_video_size(self, grid_height: int) -> None:
+        self.media_player.hasVideoChanged.connect(self.adjust_video_widget_size)
         if self.media_player.hasVideo():
-            self.adjust_video_widget_size(grid_height)
+            self.adjust_video_widget_size()
 
-    def adjust_video_widget_size(self, grid_height: int) -> None:
+    def adjust_video_widget_size(self) -> None:
         metadata = self.media_player.metaData()
         video_size: QSize = metadata.value(QMediaMetaData.Key.Resolution)
-        if video_size and video_size.isValid():
-            aspect_ratio = video_size.width() / video_size.height()
-            self.setFixedWidth(int(grid_height * aspect_ratio))
-            self.setFixedHeight(grid_height)
+        self.resize(video_size)
+
 
     def play(self) -> None:
         if self.media_player.playbackState() == QMediaPlayer.PlaybackState.PlayingState:

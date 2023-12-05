@@ -1,25 +1,19 @@
 import sys
 from PyQt6.QtWidgets import (
     QMainWindow,
-    QVBoxLayout,
-    QWidget,
-    QHBoxLayout,
     QApplication,
-    QFrame,
 )
 
 
-from custom_label import CustomLabel
-from widgets.video_frame import VideoFrame
-from widgets.pictograph_frame import PictographFrame
 from widgets.main_widget import MainWidget
+
 
 class MainWindow(QMainWindow):
     def __init__(self) -> None:
         super().__init__()
         self.setWindowTitle("TKA Interactive Video Player (v0.1.0-alpha)")
-        self.setFixedSize(800, 600) 
-    
+        self.setFixedSize(800, 600)
+
         self.configure_window()
         self.init_main_window()
 

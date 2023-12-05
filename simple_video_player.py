@@ -5,7 +5,6 @@ from PyQt6.QtMultimedia import QMediaPlayer
 from PyQt6.QtMultimediaWidgets import QVideoWidget
 
 
-
 class VideoPlayerWindow(QMainWindow):
     def __init__(self, video_path) -> None:
         super().__init__()
@@ -40,6 +39,7 @@ def main() -> None:
     main_window.show()
 
     sys.exit(app.exec())
-    
+
+
 if __name__ == "__main__":
     main()

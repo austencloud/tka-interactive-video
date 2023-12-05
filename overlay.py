@@ -11,11 +11,7 @@ class Overlay(QWidget):
 
     def paintEvent(self, event):
         painter = QPainter(self)
-        color = QColor(
-            0, 0, 0, 64
-        ) 
+        color = QColor(0, 0, 0, 64)
         painter.setBrush(color)
         painter.setPen(Qt.PenStyle.NoPen)
-        painter.drawRect(
-            0, 0, self.width(), self.height()
-        ) 
+        painter.drawRect(0, 0, self.width(), self.height())

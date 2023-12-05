@@ -44,7 +44,6 @@ class PictographFrame(QFrame):
         self.setLayout(grid_layout)
         self.setSizePolicy(QSizePolicy.Policy.Fixed, QSizePolicy.Policy.Preferred)
 
-
     def load_pictographs(self, path: str) -> list[QImage]:
         file_list = [f for f in os.listdir(path) if f.endswith(".svg")]
         file_list.sort(key=self.natural_sort_key)
@@ -70,7 +69,6 @@ class PictographFrame(QFrame):
             int(text) if text.isdigit() else text.lower()
             for text in re.split(r"(/d+)", s)
         ]
-
 
     def select_pictograph(self, label: QWidget) -> None:
         for label in self.pictograph_labels:
